@@ -3,7 +3,7 @@ title: "MATLAB"
 description: |
   A short description of the post.
 author:
-  - name: Nora Jones
+  - name: Skip Moses
     url: https://example.com/norajones
 date: 2022-02-07
 output:
