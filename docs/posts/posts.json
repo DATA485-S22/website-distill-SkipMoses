@@ -1,0 +1,36 @@
+[
+  {
+    "path": "posts/2022-02-07-matlab/",
+    "title": "MATLAB",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2022-02-07",
+    "categories": [],
+    "contents": "\nOverview\nToday I am going to attempt to learn MATLAB (Matrix Laboratory). MATLAB is a matrix based language geared towards engineers and scientists. With MATLAB one can\nAnalyze Data\nDevelop Algorithms\nCreate models and applications\nMy Goals\nFamilarize myself with basic syntax.\nLearn how to write simple loops and functions.\nLearn how to import and use scripts.\nLearn how to write a matrix to a text file.\nI need MATLAB so I can run the algorithm from Dong et. al. and compare results with my version that is implemented in python.\nMy hope is learning basic MATLAB will give me a clearer understanding of the algorithm.\nPlan\nI will watch this video, and follow along to accomplish goal 1.\nI will write some simple loops and functions for goal 2.\nI will put these functions in a script and attempt to run it.\nI will get Dong et. al. algorithm running.\nNotes\nOpening MATLAB for the first time\nWhen you open MATLAB most of the screen will be occupied by the Command Window. This functions much like the terminal with python. Here you can input simple commands. The Current Folder will show your current working directory. Notice this is very similar to RStudio. The Workspace window will show values of variables. The PLOT tab is where graphics will be displayed, and the APP tab will show different apps you can add (similar to adding packages in R).\nThe Command Window and Workspace will be the most important.\nSome common operations\nThe basic arithmetic opperations for python are +, -, *, and /. The ‘=’ sign is used for assignment.\ndouble clicking the top of a window will enlarge and minimize it.\nIf we enlarge the **Workspace*, we can right click (control click on macbook) and select several different properties to be displayed.\nWe can clear our command window by running the command ‘clc’. We can in turn hit the up arrow key to scroll through all previous commands that have been run in a given session.\nRunning the command ‘whos’ will display the workspace.\nIf we want to clear our workspace we can use the command ‘clear all’. We can delete a single variable, ‘a’, by the command ‘clear a’.\nUnderstanding Variables\nBy default, every variable defined in MATLAB will be a matrix. When we assign a single integer to a variable, MATLAB stores this as \\(1\\times 1\\) matrix.\nWe can create a matrix of arbitrary size by:\n‘a = [ 9 8 8;]’\nwill creat a \\(1\\times 3\\) matrix.\n‘a = [ 1 1 1; 2 2 2; 3 3 3;]’\nwill create the matrix:\n\\[\\begin{bmatrix}\n1&1&1\\\\\n2&2&2\\\\\n3&3&3\\\\\n\\end{bmatrix}\\]\nIf we now expand our workspace, we can click on our variable ‘a’, and see the matrix displayed in an excel-like grid. We can now use some of the other attributes in our workspace like min, max, mean, median, ect.\nWe can right click our variable in our workspace and preform some useful operations like; rename it, change its value, duplicate it and make various plots if its is the correct size.\nWe can also save the variable as .mat file.\nWe can load a .mat file with the ‘load(FILENAME.mat)’.\nDifferent Types of Variables\nSo far, we have only used numeric variables. We can have character variables char. The command\na = ‘hello world’\nwill create a \\(1\\times 11\\) character matrix.\nWe can add a row to matrix, a, with the following:\na(2,:) = a(1,:)\nThis will output\n‘hello world’\n‘hello world’\nNote: you must make sure the rows are the same size when adding them\nWe can get around this by using strings.\nWe can create an empty string with:\na = [string(‘Hi how ar you’) string(‘hello world’)]\noutput:\na =\n1×2 string array\n\"Hi how ar you\"    \"hello world\"\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-02-07T23:46:25-08:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to Today I am Learning",
+    "description": "Welcome to our new blog, Today I am Learning. We hope you enjoy \nreading what we have to say!",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2022-02-07",
+    "categories": [],
+    "contents": "\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-02-07T23:43:55-08:00",
+    "input_file": {}
+  }
+]

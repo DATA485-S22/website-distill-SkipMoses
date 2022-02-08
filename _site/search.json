@@ -3,17 +3,17 @@
     {
       "path": "about.html",
       "title": "About this blog",
-      "description": "This is a blog of note on various topics I am learning for school and research.",
+      "description": "Some additional details about the blog",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-02-07T23:46:34-08:00"
+      "last_modified": "2022-02-07T23:44:05-08:00"
     },
     {
       "path": "index.html",
       "title": "Today I am Learning",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-02-07T23:46:37-08:00"
+      "last_modified": "2022-02-07T23:44:08-08:00"
     }
   ],
   "collections": ["posts/posts.json"]

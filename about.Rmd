@@ -1,10 +1,9 @@
 ---
-title: "About this site"
+title: "About this blog"
 description: |
-  Some additional details about the website
+  This is a blog of note on various topics I am learning for school and research.
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
