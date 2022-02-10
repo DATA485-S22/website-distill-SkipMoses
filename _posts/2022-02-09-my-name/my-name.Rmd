@@ -1,0 +1,122 @@
+---
+title: "Extended Euclidean algorithm."
+description: |
+  Sagemath code for an extended euclidean algorithm.
+author:
+  - name: Skip Moses
+    url: https://example.com/norajones
+date: 2022-02-09
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+For my cryptography class we have code the Extended Euclidean Algrorithm. The Euclidean algorithm returns the greatest common divisor of two numbers. 
+
+Let $a$, $b \in \mathbb{Z}$ be not both divisible by zero.
+
+$$gcd(a,b) = \text{ max}\{d \in \mathbb{Z} : \text{ } d\vert a \text{ and } d\vert b \}$$
+
+If we compute a $gcd$ by hand we might proceed as follows assuming $b < a$:
+
+\begin{align}
+a &= bq_1 + r_1 &&0 \leq r_1 \leq b \\
+b &= q_2r_1 + r_2 &&0 \leq r_2 \leq r_1 \\
+\vdots \\
+r_{n-2} &=  q_{n}r_{n-1} + r_n && 0 \leq r_n < r_{n-1} \\
+r_{n-1} &=  q_{n+1}r_n + 0
+\end{align}
+
+From this process the last non zero $r_i$ will be the gcd of $a$ and $b$.
+
+This algorithm can be implemented with recursion as follows:
+
+
+**def** my_gcd(a,b): 
+
+|      **if** a%b == 0: 
+
+|             **return** a 
+
+|      **return** my_gcd(b, a%b) 
+
+Given $a$ and $b \in \mathbb{Z}$ there is $S$ and $T \in \mathbb{Z}$ such that
+
+\begin{align}
+a\cdot S + b \cdot T = \text{gcd}(a,b)
+\end{align}
+
+We need an iterative process to keep track of the $S$ and $T$ for the Extended Euclidean Algorithm. 
+
+\begin{align}
+r_{i-2} &= S_{i-2}a + T_{i-2}b \\
+r_{i-1} &= S_{i-1}a + T_{i-1}
+\end{align}
+
+Plugin 
+
+\begin{align}
+S_{i-2}a +T_{i-2}b = q_i\left(S_{i-1}a + T_{i-1}b \right) + r_i \\
+r_i = \left(S_{i-2} - q_iS_{i-1}\right) a + \left(T_{i-2} - q_iT_{i-1}\right) b
+\end{align}
+
+Which gives 
+
+\begin{align}
+S_i &= S_{i-2} - q_i S_{i-1} \\
+T_i &= T_{i-2} -q_i T_{i-1}
+\end{align}
+
+
+
+\begin{matrix}
+a    &    b &   r & q & S  & T   \\
+x    &x     &   x & x & 1  & 0 \\
+x    &x     &   x & x & 0  & 1  \\
+2409 & 1023 & 363 & 2 & 1  & -2 \\
+1023 & 363  & 297 & 2 & -2 & 5  \\
+363  & 297  &  66 & 1 &  3 & -7 \\
+297  &  66  &  33 & 4 & -14& 33 \\
+66   &  33  &   0 & 2 &    &
+\end{matrix}
+
+$GCD = 33$; $S = -14$; $T = 33$
+
+This process can be implemented as follows:
+
+**def** Reset(S):
+
+|    s = S[1]; S[0] = 1; S[1] = 0
+
+|    **return** s
+
+
+**def** Iterate(S, q):
+
+|    s = S[0]
+
+|    S[0] = S[1] 
+    
+|    S[1] = s - q*S[1]
+    
+|    **return** S
+   
+    
+**def** Extended_GCD(a, b, S = [1,0], T = [0,1]):
+
+|    r = a%b
+
+|    if r == 0:
+
+|        **return** (b, Reset(S), Reset(T))
+    
+|    q = a//b
+    
+|    **return** Extended_GCD(b, r, Iterate(S,q), Iterate(T,q))
+
+

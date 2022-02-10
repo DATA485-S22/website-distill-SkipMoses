@@ -6,14 +6,14 @@
       "description": "This is a blog of note on various topics I am learning for school and research.",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-02-07T23:46:34-08:00"
+      "last_modified": "2022-02-09T23:58:35-08:00"
     },
     {
       "path": "index.html",
       "title": "Today I am Learning",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-02-07T23:46:37-08:00"
+      "last_modified": "2022-02-09T23:58:37-08:00"
     }
   ],
   "collections": ["posts/posts.json"]
