@@ -1,0 +1,122 @@
+---
+title: "Linear Regression"
+description: |
+  A tutorial for Linear Regression using tidyverse.
+author:
+  - name: Skip Moses
+    url: https://example.com/norajones
+date: 2022-03-22
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidymodels)
+library(ggplot2)
+```
+
+## What is Linear Regression?
+
+Often the goal of data science is to make predictions from data. This will take the form of fitting our data to a model; 
+
+$$y = ax + b + \epsilon$$
+
+where $y$ is our output/response variable, $x$ is our input/predictor variable, $b$ is a constant and $\epsilon$ is our irreducible error. Thus, if we have data $\hat{y}$ and $\hat{x}$, then fitting this data corresponds to finding a suitable $a$ and $b$. 
+
+```{r}
+x1 <- rnorm(100,50,7)
+e <- rnorm(100,0,20)
+yhat = 100 + 5*x1 + e
+data <- data.frame(x = x1,
+                   yhat = yhat,
+                   y = yhat - e)
+ggplot(data, aes(x, yhat)) + geom_point() +
+  geom_line(aes(x, y+10), color = 'red') +
+  geom_line(aes(1.0001*x, y +1), color = 'blue') +
+  geom_line(aes(.99*x, y), color = 'green')
+```
+
+Here we have created some synthetic data. We can see there should be a line that can approximate this data (it was built to be so). But the question remains, how do we decide which line is best. The blue and green line seem better than the red line, but how do we quantify this? 
+
+One approach is to select the line that minimizes the aggregate distance from data points to our model. More rigorously, the line of best fit (our $a$ and $b$) will be such the quantity 
+
+$$\sum_{i=1}^N\vert a\hat{x} + b - \hat{y}(\hat{x}) \vert $$
+
+The proof of the validity of this is beyond the scope of this tutorial. 
+
+## Linear Regression in R with tidyverse
+
+Fortunately, there are several computer software packages capable of finding lines of best fit without any tedious calculations by hand. We will focus on the tidyverse implementation in r. 
+
+The first thing we need to do is install the package and load it.
+
+```{r, eval = FALSE}
+install.package('tidyverse')
+library(tidyverse)
+```
+
+Next, we need to tell r we want to create a linear model using regression. Essentially, we a creating an interface for our model, that will work nicely with a wide range of packages. 
+
+```{r}
+lm_parsnip <- linear_reg() 
+```
+
+Now, we will specify an engine for fitting the model. This tells r what software should be used to fit the model. Some examples are Stan and glmnet, but we will simply use the 'lm' function.
+
+```{r}
+lm_spec <- lm_parsnip %>%
+  set_engine("lm")
+lm_spec
+```
+
+Lastly, in some cases the predictor does not represent a numeric outcome. In this case, we need to specify the the mode (regression or classification). Presently, since we are using linear regression, there is only one mode and we do not need to specify it. 
+
+Now, that our model interface is created, we can use it to fit our data. 
+
+```{r}
+lm <- lm_spec %>% fit(yhat ~ x1, data = data)
+lm
+```
+
+```{r}
+typeof(lm)
+
+```
+
+Notice the output of fit is a list containing 'spec', 'fit', 'preproc' and 'elapsed'. We will only deal with 'fit' in this tutorial. 
+
+In order to get more detailed picture of our model we can call the summary function. We use the 'pluck()' function to pull the 'fit' element from our output and create a summary.
+
+```{r}
+lm %>% pluck('fit') %>%
+  summary()
+```
+
+Alternatively, we can use the tidy() function to get a view our estimated parameters in a nice table.
+
+```{r}
+tidy(lm)
+```
+
+If we want to analyze the model statistics we call the glance() function.
+
+```{r}
+glance(lm)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
