@@ -1,0 +1,136 @@
+% Encoding: UTF-8
+
+@Article{shuman2013emerging,
+  author  = {Shuman, David and Narang, Sunil and Frossard, Pascal and Ortega, Antonio and Vandergheynst, Pierre},
+  title   = {The Emerging Field of Signal Processing on Graphs: Extending High-Dimensional Data Analysis to Networks and Other Irregular Domains},
+  journal = {IEEE Signal Processing Magazine},
+  year    = {2013},
+  volume  = {3},
+  number  = {30},
+  pages   = {83--98},
+}
+
+@Article{ortega2018graph,
+  author    = {Ortega, Antonio and Frossard, Pascal and Kova{\v{c}}evi{\'c}, Jelena and Moura, Jos{\'e} MF and Vandergheynst, Pierre},
+  title     = {Graph signal processing: Overview, challenges, and applications},
+  journal   = {Proceedings of the IEEE},
+  year      = {2018},
+  volume    = {106},
+  number    = {5},
+  pages     = {808--828},
+  publisher = {IEEE},
+}
+
+@Article{mateos2019connecting,
+  author    = {Mateos, Gonzalo and Segarra, Santiago and Marques, Antonio G and Ribeiro, Alejandro},
+  title     = {Connecting the dots: Identifying network structure via graph signal processing},
+  journal   = {IEEE Signal Processing Magazine},
+  year      = {2019},
+  volume    = {36},
+  number    = {3},
+  pages     = {16--43},
+  publisher = {IEEE},
+}
+
+@Article{dong2016learning,
+  author    = {Dong, Xiaowen and Thanou, Dorina and Frossard, Pascal and Vandergheynst, Pierre},
+  title     = {Learning Laplacian matrix in smooth graph signal representations},
+  journal   = {IEEE Transactions on Signal Processing},
+  year      = {2016},
+  volume    = {64},
+  number    = {23},
+  pages     = {6160--6173},
+  publisher = {IEEE},
+}
+
+@InProceedings{kalofolias2016learn,
+  author       = {Kalofolias, Vassilis},
+  title        = {How to learn a graph from smooth signals},
+  booktitle    = {Artificial Intelligence and Statistics},
+  year         = {2016},
+  pages        = {920--929},
+  organization = {PMLR},
+}
+
+@Article{pu2021kernel,
+  author    = {Pu, Xingyue and Chau, Siu Lun and Dong, Xiaowen and Sejdinovic, Dino},
+  title     = {Kernel-based Graph Learning from Smooth Signals: A Functional Viewpoint},
+  journal   = {IEEE Transactions on Signal and Information Processing over Networks},
+  year      = {2021},
+  publisher = {IEEE},
+}
+
+@Article{huang2018graph,
+  author    = {Huang, Weiyu and Bolton, Thomas AW and Medaglia, John D and Bassett, Danielle S and Ribeiro, Alejandro and Van De Ville, Dimitri},
+  title     = {A graph signal processing perspective on functional brain imaging},
+  journal   = {Proceedings of the IEEE},
+  year      = {2018},
+  volume    = {106},
+  number    = {5},
+  pages     = {868--885},
+  publisher = {IEEE},
+}
+
+@InProceedings{tugnait2020graph,
+  author       = {Tugnait, Jitendra K},
+  title        = {Graph Learning from Multi-Attribute Smooth Signals},
+  booktitle    = {2020 IEEE 30th International Workshop on Machine Learning for Signal Processing (MLSP)},
+  year         = {2020},
+  pages        = {1--6},
+  organization = {IEEE},
+}
+
+@Article{scarselli2008graph,
+  author    = {Scarselli, Franco and Gori, Marco and Tsoi, Ah Chung and Hagenbuchner, Markus and Monfardini, Gabriele},
+  title     = {The graph neural network model},
+  journal   = {IEEE transactions on neural networks},
+  year      = {2008},
+  volume    = {20},
+  number    = {1},
+  pages     = {61--80},
+  publisher = {IEEE},
+}
+
+@Article{venkitaraman2019predicting,
+  title={Predicting graph signals using kernel regression where the input signal is agnostic to a graph},
+  author={Venkitaraman, Arun and Chatterjee, Saikat and H{\"a}ndel, Peter},
+  journal={IEEE Transactions on Signal and Information Processing over Networks},
+  volume={5},
+  number={4},
+  pages={698--710},
+  year={2019},
+  publisher={IEEE}
+}
+
+@article{egilmez2017graph,
+  title={Graph learning from data under Laplacian and structural constraints},
+  author={Egilmez, Hilmi E and Pavez, Eduardo and Ortega, Antonio},
+  journal={IEEE Journal of Selected Topics in Signal Processing},
+  volume={11},
+  number={6},
+  pages={825--841},
+  year={2017},
+  publisher={IEEE}
+}
+
+@article{hu2015spectral,
+  title={A spectral graph regression model for learning brain connectivity of Alzheimer’s disease},
+  author={Hu, Chenhui and Cheng, Lin and Sepulcre, Jorge and Johnson, Keith A and Fakhri, Georges E and Lu, Yue M and Li, Quanzheng},
+  journal={PloS one},
+  volume={10},
+  number={5},
+  pages={e0128136},
+  year={2015},
+  publisher={Public Library of Science}
+}
+
+@InCollection{chiquet2019multiattribute,
+  author    = {Chiquet, Julien and Rigaill, Guillem and Sundqvist, Martina},
+  title     = {A multiattribute gaussian graphical model for inferring multiscale regulatory networks: an application in breast cancer},
+  booktitle = {Gene Regulatory Networks},
+  publisher = {Springer},
+  year      = {2019},
+  pages     = {143--160},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
