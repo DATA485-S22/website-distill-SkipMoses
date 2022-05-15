@@ -90,6 +90,11 @@ knitr::include_graphics(c("est_graph.png"))
 
 We can see by inspection the algorithm appears to do a decent job learning the network. Detailed results on the preformance of the algrithm can be found in  @dong2016learning .
 
+## Contact Info
+
+- [GitHub](https://github.com/SkipMoses)
+- Email: skipmoses@gmail.com
+
 ```{r, include=FALSE}
 knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
 ```
