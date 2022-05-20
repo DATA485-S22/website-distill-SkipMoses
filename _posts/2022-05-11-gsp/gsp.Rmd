@@ -21,7 +21,7 @@ library(knitr)
 
 ## Introduction
 
-Data often has  an underlying structure or Geometry that can be modeled as a signal on the vertices of a weighted, undirected graph. There are several analogies between traditional signal processing and algebraic graph theory that translates many of the tools of discrete signal processing such as spectral analysis of multichannel signals, system transfer function, digital filter design, parameter estimation, and optimal denoising. Historically, GSP has focused on modeling smooth signals on a graph, but the increase in availabilty of abstract data sets has led to progress in learning a valid graph given a set of signals. 
+Data often has  an underlying structure or geometry that can be modeled as a signal on the vertices of a weighted, undirected graph. There are several analogies between traditional signal processing and algebraic graph theory that translates many of the tools of discrete signal processing such as spectral analysis of multichannel signals, system transfer function, digital filter design, parameter estimation, and optimal denoising. Historically, graph signal processing (GSP) has focused on modeling smooth signals on a graph, but the increase in availabilty of abstract data sets has led to progress in learning a valid graph given a set of signals. 
 
 ## Preliminaries
 
@@ -78,7 +78,7 @@ Next, using $L$ from the first step we solve
 Both steps can be cast as convex optimazation problems. Specifically, the first problem can be solved with the method of alternating direction of multipliers (ADMM). The second can be solved algebraically. The model is applied to both synthetic and real world data, and compared to a technique used in machine learning that is similar to sparse inverse covariance estimation of Gaussian Markov Random Field models. 
 
 ## Python Implementation
-The program of Dong et. al. can be solved efficently using the Python package [CVXPY](https://www.cvxpy.org/). An implementation of the algorithm can be found [here](https://github.com/SkipMoses/gl_sig_rep). 
+The program of Dong et. al. was originally implemented in MATLAB, but can be solved efficently using the free Python package [CVXPY (found here)](https://www.cvxpy.org/). An implementation of the algorithm can be found [here](https://github.com/SkipMoses/gl_sig_rep). 
 
 ```{r , out.width="90%", fig.cap="An Erdos-Reyni Graph on 20 nodes, with edge probability 0.2. The ground truth network used to generate 100 synthetic gaussian signals for testing.", echo=FALSE,fig.show='hold',fig.align='center'}
 knitr::include_graphics(c("gt_graph.png"))
@@ -88,7 +88,7 @@ knitr::include_graphics(c("gt_graph.png"))
 knitr::include_graphics(c("est_graph.png"))
 ```
 
-We can see by inspection the algorithm appears to do a decent job learning the network. Detailed results on the preformance of the algrithm can be found in  @dong2016learning .
+This graph was learned with no parameter optimization, but we can see on inspection they share several edges in common. Also, they have the same maximum and minimum degree (8 and 1) and the same total number of edges, $n = 38$.  Detailed results on the preformance of the algrithm with optimized parameters can be found in  @dong2016learning .
 
 ## Contact Info
 

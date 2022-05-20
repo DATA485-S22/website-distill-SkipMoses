@@ -120,7 +120,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["est_graph.png","est_hm.png","graph_ex.png","gsp_files/anchor-4.2.2/anchor.min.js","gsp_files/bowser-1.9.3/bowser.min.js","gsp_files/distill-2.2.21/template.v2.js","gsp_files/header-attrs-2.11/header-attrs.js","gsp_files/jquery-3.6.0/jquery-3.6.0.js","gsp_files/jquery-3.6.0/jquery-3.6.0.min.js","gsp_files/jquery-3.6.0/jquery-3.6.0.min.map","gsp_files/popper-2.6.0/popper.min.js","gsp_files/tippy-6.2.7/tippy-bundle.umd.min.js","gsp_files/tippy-6.2.7/tippy-light-border.css","gsp_files/tippy-6.2.7/tippy.css","gsp_files/tippy-6.2.7/tippy.umd.min.js","gsp_files/webcomponents-2.0.0/webcomponents.js","gt_graph.png","GT_hm.png","IEEEtran.cls","matrices.PNG","packages.bib","rgl.bib","rgl.bib.bak","rgl.bib.sav"]}
+  {"type":"character","attributes":{},"value":["est_graph.png","est_hm.png","graph_ex.png","gsp_blog_post.pdf","gsp_files/anchor-4.2.2/anchor.min.js","gsp_files/bowser-1.9.3/bowser.min.js","gsp_files/distill-2.2.21/template.v2.js","gsp_files/header-attrs-2.11/header-attrs.js","gsp_files/jquery-3.6.0/jquery-3.6.0.js","gsp_files/jquery-3.6.0/jquery-3.6.0.min.js","gsp_files/jquery-3.6.0/jquery-3.6.0.min.map","gsp_files/popper-2.6.0/popper.min.js","gsp_files/tippy-6.2.7/tippy-bundle.umd.min.js","gsp_files/tippy-6.2.7/tippy-light-border.css","gsp_files/tippy-6.2.7/tippy.css","gsp_files/tippy-6.2.7/tippy.umd.min.js","gsp_files/webcomponents-2.0.0/webcomponents.js","gt_graph.png","GT_hm.png","IEEEtran.cls","matrices.PNG","packages.bib","rgl.bib","rgl.bib.bak","rgl.bib.sav"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2105,7 +2105,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="d-article">
 <h2 id="introduction">Introduction</h2>
-<p>Data often has an underlying structure or Geometry that can be modeled as a signal on the vertices of a weighted, undirected graph. There are several analogies between traditional signal processing and algebraic graph theory that translates many of the tools of discrete signal processing such as spectral analysis of multichannel signals, system transfer function, digital filter design, parameter estimation, and optimal denoising. Historically, GSP has focused on modeling smooth signals on a graph, but the increase in availabilty of abstract data sets has led to progress in learning a valid graph given a set of signals.</p>
+<p>Data often has an underlying structure or geometry that can be modeled as a signal on the vertices of a weighted, undirected graph. There are several analogies between traditional signal processing and algebraic graph theory that translates many of the tools of discrete signal processing such as spectral analysis of multichannel signals, system transfer function, digital filter design, parameter estimation, and optimal denoising. Historically, graph signal processing (GSP) has focused on modeling smooth signals on a graph, but the increase in availabilty of abstract data sets has led to progress in learning a valid graph given a set of signals.</p>
 <h2 id="preliminaries">Preliminaries</h2>
 <p>A weighted, undirected graph is a triple <span class="math inline">\(G = (V, E, \omega)\)</span> of two sets <span class="math inline">\(V = \{1, \ldots, |V| = N \}\)</span> and <span class="math inline">\(E \subset V \times V\)</span> and a weighting function <span class="math inline">\(\omega(i,j) = \omega_{i,j}\)</span> that assigns a nonnegative real number to each edge. We can represent a graph by its adjacency matrix <span class="math inline">\(A\)</span> where <span class="math inline">\(A_{i,j} = \omega_{i,j}\)</span> if <span class="math inline">\((i,j) \in E\)</span> and <span class="math inline">\(0\)</span> otherwise. A signal on a graph <span class="math inline">\(G\)</span> is a function <span class="math inline">\(f: V \rightarrow \mathbb{R}\)</span> that can be represented as vector <span class="math inline">\(x \in \mathbb{R}^N\)</span>. The Laplacian of a graph is the matrix <span class="math inline">\(L = D - A\)</span> where <span class="math inline">\(D\)</span> is the degree matrix. The Laplacian acts as a difference operator on signals via it’s quadratic form</p>
 <p><span class="math display">\[\begin{equation}
@@ -2146,7 +2146,7 @@ document.addEventListener('DOMContentLoaded', function() {
 \end{equation}\]</span></p>
 <p>Both steps can be cast as convex optimazation problems. Specifically, the first problem can be solved with the method of alternating direction of multipliers (ADMM). The second can be solved algebraically. The model is applied to both synthetic and real world data, and compared to a technique used in machine learning that is similar to sparse inverse covariance estimation of Gaussian Markov Random Field models.</p>
 <h2 id="python-implementation">Python Implementation</h2>
-<p>The program of Dong et. al. can be solved efficently using the Python package <a href="https://www.cvxpy.org/">CVXPY</a>. An implementation of the algorithm can be found <a href="https://github.com/SkipMoses/gl_sig_rep">here</a>.</p>
+<p>The program of Dong et. al. was originally implemented in MATLAB, but can be solved efficently using the free Python package <a href="https://www.cvxpy.org/">CVXPY (found here)</a>. An implementation of the algorithm can be found <a href="https://github.com/SkipMoses/gl_sig_rep">here</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="gt_graph.png" alt="An Erdos-Reyni Graph on 20 nodes, with edge probability 0.2. The ground truth network used to generate 100 synthetic gaussian signals for testing." width="90%" />
@@ -2163,7 +2163,7 @@ Figure 2: The estimated network. Notice the networks share many features.
 </p>
 </div>
 </div>
-<p>We can see by inspection the algorithm appears to do a decent job learning the network. Detailed results on the preformance of the algrithm can be found in <span class="citation" data-cites="dong2016learning">Dong et al. (<a href="#ref-dong2016learning" role="doc-biblioref">2016</a>)</span> .</p>
+<p>This graph was learned with no parameter optimization, but we can see on inspection they share several edges in common. Also, they have the same maximum and minimum degree (8 and 1) and the same total number of edges, <span class="math inline">\(n = 38\)</span>. Detailed results on the preformance of the algrithm with optimized parameters can be found in <span class="citation" data-cites="dong2016learning">Dong et al. (<a href="#ref-dong2016learning" role="doc-biblioref">2016</a>)</span> .</p>
 <h2 id="contact-info">Contact Info</h2>
 <ul>
 <li><a href="https://github.com/SkipMoses">GitHub</a></li>
