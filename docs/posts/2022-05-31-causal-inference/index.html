@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -49,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -72,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -86,38 +88,38 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>Today I am Learning: Linear Regression</title>
+<title>Today I am Learning: Causal Inference</title>
 
-<meta property="description" itemprop="description" content="A tutorial for Linear Regression using tidyverse."/>
+<meta property="description" itemprop="description" content="Notes on Causal Inference following the course by Brady Neal."/>
 
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2022-03-22"/>
-<meta property="article:created" itemprop="dateCreated" content="2022-03-22"/>
+<meta property="article:published" itemprop="datePublished" content="2022-05-31"/>
+<meta property="article:created" itemprop="dateCreated" content="2022-05-31"/>
 <meta name="article:author" content="Skip Moses"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Today I am Learning: Linear Regression"/>
+<meta property="og:title" content="Today I am Learning: Causal Inference"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="A tutorial for Linear Regression using tidyverse."/>
+<meta property="og:description" content="Notes on Causal Inference following the course by Brady Neal."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Today I am Learning"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Today I am Learning: Linear Regression"/>
-<meta property="twitter:description" content="A tutorial for Linear Regression using tidyverse."/>
+<meta property="twitter:title" content="Today I am Learning: Causal Inference"/>
+<meta property="twitter:description" content="Notes on Causal Inference following the course by Brady Neal."/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Linear Regression"]},{"type":"character","attributes":{},"value":["A tutorial for Linear Regression using tidyverse."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Skip Moses"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]}]}]},{"type":"character","attributes":{},"value":["2022-03-22"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Causal Inference"]},{"type":"character","attributes":{},"value":["Notes on Causal Inference following the course by Brady Neal."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Skip Moses"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]}]}]},{"type":"character","attributes":{},"value":["2022-05-31"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["linear-regression_files/anchor-4.2.2/anchor.min.js","linear-regression_files/bowser-1.9.3/bowser.min.js","linear-regression_files/distill-2.2.21/template.v2.js","linear-regression_files/figure-html5/unnamed-chunk-1-1.png","linear-regression_files/header-attrs-2.11/header-attrs.js","linear-regression_files/jquery-3.6.0/jquery-3.6.0.js","linear-regression_files/jquery-3.6.0/jquery-3.6.0.min.js","linear-regression_files/jquery-3.6.0/jquery-3.6.0.min.map","linear-regression_files/popper-2.6.0/popper.min.js","linear-regression_files/tippy-6.2.7/tippy-bundle.umd.min.js","linear-regression_files/tippy-6.2.7/tippy-light-border.css","linear-regression_files/tippy-6.2.7/tippy.css","linear-regression_files/tippy-6.2.7/tippy.umd.min.js","linear-regression_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["causal-inference_files/anchor-4.2.2/anchor.min.js","causal-inference_files/bowser-1.9.3/bowser.min.js","causal-inference_files/distill-2.2.21/template.v2.js","causal-inference_files/header-attrs-2.14/header-attrs.js","causal-inference_files/jquery-3.6.0/jquery-3.6.0.js","causal-inference_files/jquery-3.6.0/jquery-3.6.0.min.js","causal-inference_files/jquery-3.6.0/jquery-3.6.0.min.map","causal-inference_files/popper-2.6.0/popper.min.js","causal-inference_files/tippy-6.2.7/tippy-bundle.umd.min.js","causal-inference_files/tippy-6.2.7/tippy-light-border.css","causal-inference_files/tippy-6.2.7/tippy.css","causal-inference_files/tippy-6.2.7/tippy.umd.min.js","causal-inference_files/webcomponents-2.0.0/webcomponents.js","causal_1.PNG","causal_2.PNG"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2073,7 +2075,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2094,7 +2096,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Linear Regression","description":"A tutorial for Linear Regression using tidyverse.","authors":[{"author":"Skip Moses","authorURL":"https://example.com/norajones","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-03-22T00:00:00.000-07:00","citationText":"Moses, 2022"}
+{"title":"Causal Inference","description":"Notes on Causal Inference following the course by Brady Neal.","authors":[{"author":"Skip Moses","authorURL":"https://example.com/norajones","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-05-31T00:00:00.000-07:00","citationText":"Moses, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2117,103 +2119,289 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Linear Regression</h1>
+<h1>Causal Inference</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>A tutorial for Linear Regression using tidyverse.</p></p>
+<p><p>Notes on Causal Inference following the course by Brady
+Neal.</p></p>
 </div>
 
 <div class="d-byline">
-  Skip Moses <a href="https://example.com/norajones" class="uri">https://example.com/norajones</a> 
+  Skip Moses <a href="https://example.com/norajones"
+class="uri">https://example.com/norajones</a> 
   
-<br/>2022-03-22
+<br/>2022-05-31
 </div>
 
 <div class="d-article">
-<h2 id="what-is-linear-regression">What is Linear Regression?</h2>
-<p>Often the goal of data science is to make predictions from data. This will take the form of fitting our data to a model;</p>
-<p><span class="math display">\[y = ax + b + \epsilon\]</span></p>
-<p>where <span class="math inline">\(y\)</span> is our output/response variable, <span class="math inline">\(x\)</span> is our input/predictor variable, <span class="math inline">\(b\)</span> is a constant and <span class="math inline">\(\epsilon\)</span> is our irreducible error. Thus, if we have data <span class="math inline">\(\hat{y}\)</span> and <span class="math inline">\(\hat{x}\)</span>, then fitting this data corresponds to finding a suitable <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="linear-regression_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
-</div>
-<p>Here we have created some synthetic data. We can see there should be a line that can approximate this data (it was built to be so). But the question remains, how do we decide which line is best. The blue and green line seem better than the red line, but how do we quantify this?</p>
-<p>One approach is to select the line that minimizes the aggregate distance from data points to our model. More rigorously, the line of best fit (our <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>) will be such the quantity</p>
-<p><span class="math display">\[\sum_{i=1}^N\vert a\hat{x} + b - \hat{y}(\hat{x}) \vert \]</span></p>
-<p>The proof of the validity of this is beyond the scope of this tutorial.</p>
-<h2 id="linear-regression-in-r-with-tidyverse">Linear Regression in R with tidyverse</h2>
-<p>Fortunately, there are several computer software packages capable of finding lines of best fit without any tedious calculations by hand. We will focus on the tidyverse implementation in r.</p>
-<p>The first thing we need to do is install the package and load it.</p>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<p>Next, we need to tell r we want to create a linear model using regression. Essentially, we a creating an interface for our model, that will work nicely with a wide range of packages.</p>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<p>Now, we will specify an engine for fitting the model. This tells r what software should be used to fit the model. Some examples are Stan and glmnet, but we will simply use the ‘lm’ function.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre><code>Linear Regression Model Specification (regression)
-
-Computational engine: lm </code></pre>
-</div>
-<p>Lastly, in some cases the predictor does not represent a numeric outcome. In this case, we need to specify the the mode (regression or classification). Presently, since we are using linear regression, there is only one mode and we do not need to specify it.</p>
-<p>Now, that our model interface is created, we can use it to fit our data.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre><code>parsnip model object
-
-Fit time:  4ms 
-
-Call:
-stats::lm(formula = yhat ~ x1, data = data)
-
-Coefficients:
-(Intercept)           x1  
-    120.764        4.605  </code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre><code>[1] &quot;list&quot;</code></pre>
-</div>
-<p>Notice the output of fit is a list containing ‘spec’, ‘fit’, ‘preproc’ and ‘elapsed’. We will only deal with ‘fit’ in this tutorial.</p>
-<p>In order to get more detailed picture of our model we can call the summary function. We use the ‘pluck()’ function to pull the ‘fit’ element from our output and create a summary.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre><code>
-Call:
-stats::lm(formula = yhat ~ x1, data = data)
-
-Residuals:
-   Min     1Q Median     3Q    Max 
--38.57 -15.24   0.15  14.31  66.25 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 120.7644    15.2940   7.896 4.22e-12 ***
-x1            4.6047     0.2997  15.364  &lt; 2e-16 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 20.54 on 98 degrees of freedom
-Multiple R-squared:  0.7066,    Adjusted R-squared:  0.7037 
-F-statistic: 236.1 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-<p>Alternatively, we can use the tidy() function to get a view our estimated parameters in a nice table.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre><code># A tibble: 2 × 5
-  term        estimate std.error statistic  p.value
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 (Intercept)   121.      15.3        7.90 4.22e-12
-2 x1              4.60     0.300     15.4  7.60e-28</code></pre>
-</div>
-<p>If we want to analyze the model statistics we call the glance() function.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre><code># A tibble: 1 × 12
-  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC
-      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-1     0.707         0.704  20.5      236. 7.60e-28     1  -443.  892.
-# … with 4 more variables: BIC &lt;dbl&gt;, deviance &lt;dbl&gt;,
-#   df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
-</div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>In this post we preview the course on Causal Inference. This post
+will give a brief overview of the main concepts.</p>
+<h2 id="what-is-causal-inference">What is causal inference?</h2>
+<ul>
+<li><p>Inferring the effects of any
+treatment/policy/intervention/ect.</p></li>
+<li><p>Examples:</p>
+<ul>
+<li>Effect of treatment on a disease</li>
+<li>Effect of climate change policy on emissions</li>
+<li>Effect of social media on mental health</li>
+<li>In general, effect of <span class="math inline">\(X\)</span> on
+<span class="math inline">\(Y\)</span>.</li>
+</ul></li>
+</ul>
+<h2 id="motivating-example">Motivating Example</h2>
+<p>Suppose we have some disease we are tying to treat with treatment A
+and treatment B. Our only goal is minimizing death. Suppose treatment B
+is much more scarce than treatment A.</p>
+<ul>
+<li>Treatment T: A (0) and B (1)</li>
+<li>Condition C: mild (0) or severe (1)</li>
+<li>Outcome Y : alive (0) dead (1)</li>
+</ul>
+<h4 id="data-at-treatment-level">Data at Treatment Level</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Treatment</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>240/1500 16%</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>105/550 19%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Note this column is just <span class="math inline">\(\mathbb{E}[Y
+\vert T]\)</span></p></li>
+<li><p>On average 16% (240 out of 1500) died after receiving treatment
+A.</p></li>
+<li><p>On average 19% (105 out of 550) died after receiving treatment
+B.</p></li>
+<li><p>It appears treatment A is the best option, because fewer patients
+that received treatment A died.</p></li>
+</ul>
+<h4 id="data-at-the-condition-level">Data at the Condition Level</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Treatment</th>
+<th>Mild</th>
+<th>Severe</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>210/1400 15%</td>
+<td>30/100 30%</td>
+<td>240/1500 16%</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>5/50 10%</td>
+<td>100/500 20%</td>
+<td>105/550 19%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Note the two new columns are <span
+class="math inline">\(\mathbb{E}[Y \vert T,C]\)</span>.</p></li>
+<li><p>Now that we have conditioned on condition we see our conclusion
+is flipped. Fewer patients died that received treatment B in both mild
+and severe patients.</p></li>
+<li><p>This is Simpson’s Paradox: Our conclusions seem to depend on how
+we partition our data.</p></li>
+<li><p>We can think of these numbers the following way:</p></li>
+</ul>
+<p><span class="math display">\[
+  \frac{1400}{1500}(0.15) + \frac{100}{1500}(0.30) = 0.16
+\]</span></p>
+<p><span class="math display">\[
+  \frac{50}{550}(0.10) + \frac{500}{550}(0.20) = 0.19
+\]</span></p>
+<ul>
+<li><p>Now, the fractions are like weights on our percentages. We see
+the 19% of patients that received treatment B had a severe
+condition.</p></li>
+<li><p>Likewise, the most patients that received treatment A only had a
+mild condition.</p></li>
+</ul>
+<h4 id="which-treatment-should-you-choose">Which treatment should you
+choose?</h4>
+<ul>
+<li><p>The answer will depend on the causal structure of the
+problem.</p></li>
+<li><figure>
+<img src="causal_1.PNG"
+alt="Treatment and Outcome depend on Condition" />
+<figcaption aria-hidden="true">Treatment and Outcome depend on
+Condition</figcaption>
+</figure>
+<ul>
+<li>In this case, treatment B is the correct choice.</li>
+<li>Since treatment B was scarcer, doctors administer the more readily
+available treatment A.</li>
+<li>But if a more severe case is identified the doctor administers
+treatment B.</li>
+</ul></li>
+<li><figure>
+<img src="causal_1.PNG"
+alt="Condition and Outcome depend on Treatment" />
+<figcaption aria-hidden="true">Condition and Outcome depend on
+Treatment</figcaption>
+</figure>
+<ul>
+<li>In this case, treatment A is the correct choice.</li>
+<li>Because of the scarcity of treatment B, it is possible you will have
+to wait for treatment B.</li>
+<li>Alternatively, you don’t have to wait to receive treatment A.</li>
+<li>A patient with a mild condition, might progress to a severe
+condition because they have to wait.</li>
+<li>In order to account for effect of treatment through condition, we
+consider the total numbers.</li>
+</ul></li>
+</ul>
+<h2 id="correlation-does-not-imply-causation">Correlation does not imply
+causation</h2>
+<ul>
+<li><p>Observations can be correlated by chance, or if there is a common
+cause of both.</p>
+<ul>
+<li>Suppose sleeping with shoes on is highly correlated with waking up
+with a headache.</li>
+<li>You might conclude that sleeping with your shoes on causes a
+headache in the morning.</li>
+<li>However, a large majority of those who slept with their shoes on
+also drank the night before.</li>
+<li>In this example drinking the night before is counfounding the
+association between sleeping with shoes on and waking up with a
+headache.</li>
+</ul></li>
+<li><p>Total association (e.g. correlation) is a mixture of causal and
+confounding association.</p></li>
+</ul>
+<h2 id="what-does-imply-causation">What does imply causation?</h2>
+<h4 id="potential-outcomes">Potential Outcomes</h4>
+<ul>
+<li>Suppose you have a headache, and you know if you take a pill your
+headache will go away; if you don’t your headache will not go away.
+<ul>
+<li>You might say the pill causes the headache to go away.</li>
+<li>If your headache goes away without taking the pill, you might
+conclude the pill didn’t do anything.</li>
+</ul></li>
+</ul>
+<ul>
+<li>The causal effect of the treatment on the outcome is defined to be
+difference between potential outcomes. <span
+class="math display">\[Y_i(1) - Y_i(0)\]</span></li>
+</ul>
+<h4 id="fundamental-problem-of-causal-inference">Fundamental problem of
+causal inference</h4>
+<ul>
+<li><p>Suppose you do not take the pill, then <span
+class="math inline">\(Y_i(0)\)</span> is the Factual.</p></li>
+<li><p>The problem is we cannot compute the Counterfactual, <span
+class="math inline">\(Y_i(1)\)</span>.</p></li>
+<li><p>Therefore, we cannot compute the causal effect.</p></li>
+</ul>
+<h4 id="work-around-average-treatment-effect-ate">Work around (Average
+Treatment Effect ATE)</h4>
+<ul>
+<li><p>Leverage linearity of expectation to</p></li>
+<li><p>Denote the individual treatment effect (ITE) by <span
+class="math inline">\(Y_i(1)-Y_i(0)\)</span>.</p></li>
+<li><p>The ATE is <span class="math inline">\(\mathbb{E}[Y_i(1) -
+Y_i(0)] = \mathbb{E}[Y_i(1)] - \mathbb{E}[Y_i(0)]\)</span>.</p></li>
+<li><p>Note, potential outcomes are not actual outcomes, so</p></li>
+</ul>
+<p><span class="math display">\[
+  \mathbb{E}[Y_i(1)] - \mathbb{E}[Y_i(0)] \neq \mathbb{E}[Y\vert T=1] -
+\mathbb{E}[Y\vert T = 0]
+\]</span> The left hand side is causal, while the right hand side is
+causal and confounding.</p>
+<ul>
+<li><p>This is where randomized trials come in. This allows us to remove
+any causal relationship between treatment and condition.</p></li>
+<li><p>When there is no confounding: <span class="math display">\[
+\mathbb{E}[Y_i(1)] - \mathbb{E}[Y_i(0)] = \mathbb{E}[Y\vert T=1] -
+\mathbb{E}[Y\vert T = 0]
+\]</span></p></li>
+<li><p>Randomization is very powerful, because it also removes any
+causal effects of unobserved variables.</p></li>
+</ul>
+<h4 id="observational-sudies">Observational Sudies</h4>
+<ul>
+<li><p>Can’t always be randomized.</p>
+<ul>
+<li>Randomization could be unethical/infeasible/impossible.</li>
+</ul></li>
+<li><p>How do we measure causal effect in observational studies?</p>
+<ul>
+<li><p>We adjust/control for the right variables <span
+class="math inline">\(W\)</span>.</p></li>
+<li><p>If <span class="math inline">\(W\)</span> is a sufficient
+adjustment set, we have</p></li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+  \mathbb{E}[Y(t) \vert W = w] := \mathbb{E}[Y\vert do(T=t), W =w] =
+\mathbb{E}[Y\vert t,w]
+\]</span> - This still depends on <span
+class="math inline">\(w\)</span>, so we take the marginal</p>
+<p><span class="math display">\[
+  \mathbb{E}[Y(t)] := \mathbb{E}[Y\vert do(T=t)] =
+\mathbb{E}_W\mathbb{E}[Y\vert t, W]
+\]</span></p>
+<h4 id="example">Example</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Treatment</th>
+<th>Mild</th>
+<th>Severe</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>210/1400 15%</td>
+<td>30/100 30%</td>
+<td>240/1500 16%</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>5/50 10%</td>
+<td>100/500 20%</td>
+<td>105/550 19%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Here are sufficient adjustment is Condition.</li>
+</ul>
+<p><span class="math display">\[
+  \mathbb{E}[Y\vert do(T=t)] = \mathbb{E}_W\mathbb{E}[Y\vert t, C] =
+\sum_{c\in C} \mathbb{E}[Y\vert t,c]P(c)
+\]</span></p>
+<p><span class="math display">\[
+  \frac{1450}{2050}(0.15) + \frac{600}{2050}(0.30) \approx 0.194
+\]</span></p>
+<p><span class="math display">\[
+  \frac{1450}{2050}(0.10) + \frac{600}{2050}(0.20) \approx 0.129
+\]</span></p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
